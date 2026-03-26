@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>商品紹介 | The Rice Creamery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+
+:root{--red:#E7312E;--red-dark:#C42826;--cream:#EDEBDA;--cream-light:#FDFCEB;--cream-white:#FAF9F5;--white:#FFF;--text:#1F1F1F;--text-mid:#555;--text-light:#8B7B6B;--border:#DDD8C8;--shadow:0 2px 16px rgba(0,0,0,.07)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans JP','Zen Maru Gothic',sans-serif;background:var(--cream-white);color:var(--text);line-height:1.7}
+a{text-decoration:none;color:inherit}
+header{background:var(--red);padding:0 40px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.logo-link img{display:block}
+nav{display:flex;align-items:center;gap:28px}
+nav a{color:rgba(253,252,235,.8);font-size:13px;font-weight:500;letter-spacing:.5px;transition:.2s;padding-bottom:2px}
+nav a:hover{color:var(--cream-light)}
+nav a.active{color:var(--cream-light);border-bottom:2px solid var(--cream-light)}
+.nav-shop{background:var(--cream-light);color:var(--red)!important;padding:7px 18px!important;border-radius:24px!important;font-weight:700!important;border:none!important;transition:.2s!important}
+.nav-shop:hover{background:var(--cream)!important}
+footer{background:var(--red);color:rgba(253,252,235,.75);text-align:center;padding:32px 20px;font-size:12px}
+footer a{color:var(--cream-light);font-weight:500}
+footer .footer-logo{margin-bottom:12px}
+footer p+p{margin-top:6px}
+.section{padding:80px 40px;max-width:1100px;margin:0 auto}
+.section-label{font-size:11px;letter-spacing:3px;color:var(--red);font-weight:700;text-transform:uppercase;margin-bottom:10px}
+.section-title{font-size:32px;font-weight:700;line-height:1.4;margin-bottom:20px;font-family:'Zen Maru Gothic',sans-serif}
+.section-body{font-size:15px;color:var(--text-mid);max-width:640px;line-height:1.9}
+.btn{display:inline-block;padding:14px 36px;border-radius:32px;font-weight:700;font-size:14px;letter-spacing:.5px;cursor:pointer;transition:.2s}
+.btn-red{background:var(--red);color:var(--cream-light)}
+.btn-red:hover{background:var(--red-dark)}
+.btn-outline{border:2px solid var(--red);color:var(--red)}
+.btn-outline:hover{background:var(--red);color:var(--cream-light)}
+@media(max-width:768px){header{padding:0 16px}.section{padding:48px 20px}.section-title{font-size:24px}nav{gap:14px}nav a{font-size:12px}}
+@media(max-width:540px){nav .hide-sp{display:none}}
+
+
+.products-hero{background:linear-gradient(135deg,var(--red) 0%,#A0201E 100%);color:var(--cream-light);text-align:center;padding:72px 40px 90px;position:relative}
+.products-hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:60px;background:var(--cream-white);clip-path:ellipse(55% 100% at 50% 100%)}
+.flavor-section{padding:80px 40px;max-width:1100px;margin:0 auto}
+.flavor-detail{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:60px 0;border-bottom:1px solid var(--border)}
+.flavor-detail:last-child{border-bottom:none}
+.flavor-detail.reverse{direction:rtl}
+.flavor-detail.reverse>*{direction:ltr}
+.flavor-visual{border-radius:16px;height:320px;display:flex;align-items:center;justify-content:center;font-size:100px}
+.flavor-visual-1{background:linear-gradient(135deg,#FFF8E8,#FDECC8)}
+.flavor-visual-2{background:linear-gradient(135deg,#E8F5E2,#C8E6B8)}
+.flavor-visual-3{background:linear-gradient(135deg,#3D2015,#5C3020)}
+.flavor-tag{display:inline-block;background:var(--red);color:var(--cream-light);font-size:10px;font-weight:700;letter-spacing:2px;padding:4px 12px;border-radius:12px;margin-bottom:14px}
+.flavor-heading{font-size:28px;font-weight:700;font-family:'Zen Maru Gothic',sans-serif;margin-bottom:4px}
+.flavor-heading-en{font-size:13px;color:var(--text-light);letter-spacing:2px;margin-bottom:16px}
+.flavor-text{font-size:14px;color:var(--text-mid);line-height:1.9;margin-bottom:20px}
+.spec-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:20px}
+.spec-table td{padding:8px 12px;border-bottom:1px solid var(--border)}
+.spec-table td:first-child{color:var(--text-light);width:100px;white-space:nowrap}
+.kcal-badge{display:inline-block;background:var(--cream-light);border:1.5px solid var(--border);border-radius:8px;padding:6px 16px;font-size:13px;font-weight:700;color:var(--red)}
+.sets-section{background:var(--cream-light);padding:80px 40px}
+.sets-inner{max-width:1100px;margin:0 auto}
+.sets-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.set-card{background:var(--white);border-radius:14px;padding:28px 24px;box-shadow:var(--shadow);text-align:center}
+.set-price{font-size:28px;font-weight:700;color:var(--red);margin:12px 0 8px}
+.set-name{font-size:15px;font-weight:700;margin-bottom:6px}
+.set-desc{font-size:13px;color:var(--text-mid);line-height:1.7;margin-bottom:16px}
+@media(max-width:768px){.flavor-detail{grid-template-columns:1fr}.flavor-detail.reverse{direction:ltr}.sets-grid{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html" class="logo-link"><img src="trc_logo.svg" alt="The Rice Creamery" style="height:38px"></a>
+  <nav><a href="index.html">ホーム</a><a href="products.html" class="active">商品紹介</a><a href="stores.html">取扱店舗</a><a href="story.html">ストーリー</a><a href="https://shop.the-ricecream.com/" target="_blank" class="nav-shop">オンラインショップ</a></nav>
+</header>
+
+<div class="products-hero">
+  <p style="font-size:11px;letter-spacing:3px;opacity:.75;margin-bottom:12px">FLAVORS</p>
+  <h1 style="font-size:clamp(24px,4vw,40px);font-weight:700;font-family:'Zen Maru Gothic',sans-serif;margin-bottom:12px">フレーバー紹介</h1>
+  <p style="font-size:14px;opacity:.85">乳・卵不使用。3つの個性あるフレーバーをお楽しみください。</p>
+</div>
+
+<div class="flavor-section">
+
+  <div class="flavor-detail">
+    <div class="flavor-visual flavor-visual-1">🍚</div>
+    <div>
+      <span class="flavor-tag">ORIGINAL</span>
+      <h2 class="flavor-heading">穂の華</h2>
+      <p class="flavor-heading-en">THE ORIGINAL</p>
+      <p class="flavor-text">お米本来のまろやかな甘みと、カシューナッツのコクが溶け合う、The Rice Creamery の原点フレーバー。シンプルだからこそ素材の力が光ります。口の中でゆっくりとほどける、やさしい甘さをお楽しみください。</p>
+      <table class="spec-table">
+        <tr><td>カロリー</td><td><span class="kcal-badge">113kcal</span></td></tr>
+        <tr><td>原材料</td><td>米加工品、カシューナッツペースト、砂糖、ブドウ糖、食物繊維、食塩 / 乳化剤、安定剤</td></tr>
+        <tr><td>アレルゲン</td><td>カシューナッツ</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="flavor-detail reverse">
+    <div class="flavor-visual flavor-visual-2">🍵</div>
+    <div>
+      <span class="flavor-tag">MATCHA</span>
+      <h2 class="flavor-heading">匠・宇治抹茶</h2>
+      <p class="flavor-heading-en">UJI MATCHA</p>
+      <p class="flavor-text">京都・宇治の老舗茶商「堀田商店」の抹茶を使用。余計な甘みを加えず、抹茶そのものの豊かな香りと凛とした苦みをまっすぐに届けます。茶道の心を、アイスクリームに込めました。</p>
+      <table class="spec-table">
+        <tr><td>カロリー</td><td><span class="kcal-badge">115kcal</span></td></tr>
+        <tr><td>原材料</td><td>米加工品、カシューナッツペースト、砂糖、ブドウ糖、抹茶、食物繊維、食塩 / 乳化剤、安定剤</td></tr>
+        <tr><td>アレルゲン</td><td>カシューナッツ</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="flavor-detail">
+    <div class="flavor-visual flavor-visual-3">🍫</div>
+    <div>
+      <span class="flavor-tag">CHOCOLATE</span>
+      <h2 class="flavor-heading">芳醇オランダチョコ</h2>
+      <p class="flavor-heading-en">DUTCH CHOCOLATE</p>
+      <p class="flavor-text">日本にチョコレートを初めてもたらしたオランダにちなんだ、芳醇なチョコレートフレーバー。ダッチプロセスのカカオパウダーが持つ深いコクと香りを、そのままアイスに閉じ込めました。</p>
+      <table class="spec-table">
+        <tr><td>カロリー</td><td><span class="kcal-badge">122kcal</span></td></tr>
+        <tr><td>原材料</td><td>米加工品、カシューナッツペースト、砂糖、ブドウ糖、ココアパウダー、食物繊維、食塩 / 乳化剤、安定剤</td></tr>
+        <tr><td>アレルゲン</td><td>カシューナッツ</td></tr>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<div class="sets-section">
+  <div class="sets-inner">
+    <p class="section-label">Online Shop</p>
+    <h2 class="section-title">セット内容・価格</h2>
+    <p class="section-body">3種のフレーバーを取り揃えたセットでお届けします。ギフトにもぜひ。</p>
+    <div class="sets-grid">
+      <div class="set-card">
+        <div style="font-size:36px">🍦🍦🍦</div>
+        <div class="set-name">3種 3個入セット</div>
+        <div class="set-price">¥1,980</div>
+        <p class="set-desc">はじめての方におすすめ。3種のフレーバーを各1個ずつお試しいただけます。</p>
+        <a href="https://shop.the-ricecream.com/" target="_blank" class="btn btn-red" style="font-size:13px;padding:10px 24px">購入する</a>
+      </div>
+      <div class="set-card">
+        <div style="font-size:36px">🍦×6</div>
+        <div class="set-name">3種 6個入セット</div>
+        <div class="set-price">¥2,980</div>
+        <p class="set-desc">各フレーバー2個ずつ。気に入ったフレーバーをまとめてお楽しみいただけます。</p>
+        <a href="https://shop.the-ricecream.com/" target="_blank" class="btn btn-red" style="font-size:13px;padding:10px 24px">購入する</a>
+      </div>
+      <div class="set-card">
+        <div style="font-size:36px">🍦×12</div>
+        <div class="set-name">3種 12個入セット</div>
+        <div class="set-price">¥4,480</div>
+        <p class="set-desc">各フレーバー4個ずつ。ご家族やギフトに最適な大容量セット。</p>
+        <a href="https://shop.the-ricecream.com/" target="_blank" class="btn btn-red" style="font-size:13px;padding:10px 24px">購入する</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo"><img src="trc_logo.svg" alt="The Rice Creamery" style="height:28px;opacity:.9"></div>
+  <p>&copy; 2026 The Rice Creamery by Kinish Inc. All rights reserved.</p>
+  <p style="margin-top:8px">
+    <a href="https://shop.the-ricecream.com/policies/privacy-policy" target="_blank">プライバシーポリシー</a>
+    &nbsp;｜&nbsp;
+    <a href="https://shop.the-ricecream.com/policies/legal-notice" target="_blank">特定商取引法に基づく表記</a>
+  </p>
+</footer>
+</body>
+</html>

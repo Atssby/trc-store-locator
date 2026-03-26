@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ストーリー | The Rice Creamery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+
+:root{--red:#E7312E;--red-dark:#C42826;--cream:#EDEBDA;--cream-light:#FDFCEB;--cream-white:#FAF9F5;--white:#FFF;--text:#1F1F1F;--text-mid:#555;--text-light:#8B7B6B;--border:#DDD8C8;--shadow:0 2px 16px rgba(0,0,0,.07)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans JP','Zen Maru Gothic',sans-serif;background:var(--cream-white);color:var(--text);line-height:1.7}
+a{text-decoration:none;color:inherit}
+header{background:var(--red);padding:0 40px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.logo-link img{display:block}
+nav{display:flex;align-items:center;gap:28px}
+nav a{color:rgba(253,252,235,.8);font-size:13px;font-weight:500;letter-spacing:.5px;transition:.2s;padding-bottom:2px}
+nav a:hover{color:var(--cream-light)}
+nav a.active{color:var(--cream-light);border-bottom:2px solid var(--cream-light)}
+.nav-shop{background:var(--cream-light);color:var(--red)!important;padding:7px 18px!important;border-radius:24px!important;font-weight:700!important;border:none!important;transition:.2s!important}
+.nav-shop:hover{background:var(--cream)!important}
+footer{background:var(--red);color:rgba(253,252,235,.75);text-align:center;padding:32px 20px;font-size:12px}
+footer a{color:var(--cream-light);font-weight:500}
+footer .footer-logo{margin-bottom:12px}
+footer p+p{margin-top:6px}
+.section{padding:80px 40px;max-width:1100px;margin:0 auto}
+.section-label{font-size:11px;letter-spacing:3px;color:var(--red);font-weight:700;text-transform:uppercase;margin-bottom:10px}
+.section-title{font-size:32px;font-weight:700;line-height:1.4;margin-bottom:20px;font-family:'Zen Maru Gothic',sans-serif}
+.section-body{font-size:15px;color:var(--text-mid);max-width:640px;line-height:1.9}
+.btn{display:inline-block;padding:14px 36px;border-radius:32px;font-weight:700;font-size:14px;letter-spacing:.5px;cursor:pointer;transition:.2s}
+.btn-red{background:var(--red);color:var(--cream-light)}
+.btn-red:hover{background:var(--red-dark)}
+.btn-outline{border:2px solid var(--red);color:var(--red)}
+.btn-outline:hover{background:var(--red);color:var(--cream-light)}
+@media(max-width:768px){header{padding:0 16px}.section{padding:48px 20px}.section-title{font-size:24px}nav{gap:14px}nav a{font-size:12px}}
+@media(max-width:540px){nav .hide-sp{display:none}}
+
+
+.story-hero{background:linear-gradient(160deg,#2A1A0A 0%,#8B4513 100%);color:var(--cream-light);padding:100px 40px;text-align:center;position:relative}
+.story-hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:60px;background:var(--cream-white);clip-path:ellipse(55% 100% at 50% 100%)}
+.story-body{max-width:760px;margin:0 auto;padding:80px 40px}
+.story-chapter{margin-bottom:72px}
+.story-num{font-size:11px;letter-spacing:3px;color:var(--red);font-weight:700;margin-bottom:10px}
+.story-chapter-title{font-size:26px;font-weight:700;font-family:'Zen Maru Gothic',sans-serif;margin-bottom:20px;line-height:1.5}
+.story-text{font-size:15px;color:var(--text-mid);line-height:2.1}
+.story-text+.story-text{margin-top:16px}
+.story-divider{height:1px;background:var(--border);margin:40px 0}
+.story-visual{border-radius:14px;margin:32px 0;height:240px;display:flex;align-items:center;justify-content:center;font-size:80px}
+.commitment-grid{background:var(--cream-light);padding:80px 40px}
+.commitment-inner{max-width:1100px;margin:0 auto}
+.commitment-list{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.commitment-item{background:var(--white);border-radius:12px;padding:24px;box-shadow:var(--shadow);display:flex;gap:16px;align-items:flex-start}
+.commitment-icon{font-size:28px;flex-shrink:0}
+.commitment-title{font-size:14px;font-weight:700;margin-bottom:6px}
+.commitment-body{font-size:13px;color:var(--text-mid);line-height:1.8}
+@media(max-width:768px){.story-body{padding:48px 20px}.commitment-list{grid-template-columns:1fr}.commitment-grid{padding:48px 20px}}
+
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html" class="logo-link"><img src="trc_logo.svg" alt="The Rice Creamery" style="height:38px"></a>
+  <nav><a href="index.html">ホーム</a><a href="products.html">商品紹介</a><a href="stores.html">取扱店舗</a><a href="story.html" class="active">ストーリー</a><a href="https://shop.the-ricecream.com/" target="_blank" class="nav-shop">オンラインショップ</a></nav>
+</header>
+
+<div class="story-hero">
+  <p style="font-size:11px;letter-spacing:3px;opacity:.7;margin-bottom:14px">OUR STORY</p>
+  <h1 style="font-size:clamp(24px,4vw,44px);font-weight:700;font-family:'Zen Maru Gothic',sans-serif;line-height:1.4;margin-bottom:14px">誕生。お米がつくる、<br>至福のアイスクリーム。</h1>
+  <p style="font-size:14px;opacity:.8;max-width:500px;margin:0 auto">Kinishが創るThe Rice Creamery。<br>その始まりと、込めた想いをお伝えします。</p>
+</div>
+
+<div class="story-body">
+
+  <div class="story-chapter">
+    <p class="story-num">CHAPTER 01</p>
+    <h2 class="story-chapter-title">なぜ、アイスクリームなのか。</h2>
+    <div class="story-visual" style="background:linear-gradient(135deg,#FFF8E8,#FDECC8)">🌾🍦</div>
+    <p class="story-text">アイスクリームは、老若男女を問わず愛される食べ物です。しかし、一般的なアイスクリームは乳製品や卵を多く使用しており、アレルギーをお持ちの方や、環境に配慮した食生活を送りたい方には、気軽に楽しめないという現実がありました。</p>
+    <p class="story-text">「すべての人が、罪悪感なくアイスを楽しめる世界をつくれないか」——その一つの問いが、The Rice Creameryの出発点です。</p>
+  </div>
+
+  <div class="story-divider"></div>
+
+  <div class="story-chapter">
+    <p class="story-num">CHAPTER 02</p>
+    <h2 class="story-chapter-title">答えは、日本のお米の中にあった。</h2>
+    <div class="story-visual" style="background:linear-gradient(135deg,#E8F3E0,#D5ECC5)">🌾</div>
+    <p class="story-text">試行錯誤の末にたどり着いたのが、日本のお米でした。お米のデンプンが持つ自然なとろみ、そして国産米ならではの繊細な甘み。これらがカシューナッツペーストと組み合わさることで、乳製品を一切使わずに、クリーミーでコクのあるアイスクリームが生まれました。</p>
+    <p class="story-text">日本人にとって最も身近な食材から、まったく新しいアイスクリームを。この逆転の発想が、The Rice Creameryの核心です。</p>
+  </div>
+
+  <div class="story-divider"></div>
+
+  <div class="story-chapter">
+    <p class="story-num">CHAPTER 03</p>
+    <h2 class="story-chapter-title">3つのフレーバーに込めた、日本の美学。</h2>
+    <p class="story-text">フレーバーの選定にも、こだわりがあります。「穂の華」はお米そのものの純粋な味わい。「匠・宇治抹茶」は日本の茶道文化への敬意。「芳醇オランダチョコ」は、はるか昔に日本へチョコレートをもたらしたオランダへのオマージュ。</p>
+    <p class="story-text">それぞれのフレーバーに物語があり、素材そのものの力を最大限に引き出す、引き算の美学で仕上げています。</p>
+  </div>
+
+</div>
+
+<div class="commitment-grid">
+  <div class="commitment-inner">
+    <p class="section-label">Our Commitment</p>
+    <h2 class="section-title">私たちの約束</h2>
+    <div class="commitment-list">
+      <div class="commitment-item">
+        <div class="commitment-icon">🌿</div>
+        <div>
+          <div class="commitment-title">乳・卵・グルテンフリー</div>
+          <p class="commitment-body">すべての製品において、乳製品・卵・グルテンを使用しません。アレルギーをお持ちの方も安心してお楽しみいただけます。</p>
+        </div>
+      </div>
+      <div class="commitment-item">
+        <div class="commitment-icon">🌍</div>
+        <div>
+          <div class="commitment-title">環境への配慮</div>
+          <p class="commitment-body">従来の乳製品アイスと比較して、温室効果ガス排出量を約62%削減。おいしさと持続可能性を両立します。</p>
+        </div>
+      </div>
+      <div class="commitment-item">
+        <div class="commitment-icon">🇯🇵</div>
+        <div>
+          <div class="commitment-title">国産素材へのこだわり</div>
+          <p class="commitment-body">主原料のお米は国産を使用。日本の農業を支え、安全で高品質な素材を使い続けることを約束します。</p>
+        </div>
+      </div>
+      <div class="commitment-item">
+        <div class="commitment-icon">🔬</div>
+        <div>
+          <div class="commitment-title">シンプルな原材料</div>
+          <p class="commitment-body">余計な添加物は使いません。素材の力を信じ、最小限の材料で最大限の美味しさを追求します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo"><img src="trc_logo.svg" alt="The Rice Creamery" style="height:28px;opacity:.9"></div>
+  <p>&copy; 2026 The Rice Creamery by Kinish Inc. All rights reserved.</p>
+  <p style="margin-top:8px">
+    <a href="https://shop.the-ricecream.com/policies/privacy-policy" target="_blank">プライバシーポリシー</a>
+    &nbsp;｜&nbsp;
+    <a href="https://shop.the-ricecream.com/policies/legal-notice" target="_blank">特定商取引法に基づく表記</a>
+  </p>
+</footer>
+</body>
+</html>
