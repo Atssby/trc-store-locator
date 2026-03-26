@@ -54,10 +54,6 @@ nav a:hover{color:var(--cream-light)} nav a.active{color:var(--cream-light);bord
 .store-address svg{flex-shrink:0;margin-top:2px;color:var(--red)}
 .map-container{border-radius:12px;overflow:hidden;border:1.5px solid var(--border);position:relative;background:var(--cream-white)}
 .map-container iframe{width:100%;height:100%;border:0}
-.map-overlay{position:absolute;bottom:12px;left:12px;display:flex;gap:10px;z-index:10}
-.map-legend{background:var(--white);padding:8px 14px;border-radius:8px;box-shadow:var(--shadow);display:flex;gap:14px;font-size:11px;font-weight:500}
-.legend-item{display:flex;align-items:center;gap:5px}
-.legend-dot{width:8px;height:8px;border-radius:50%}
 .map-google-link{position:absolute;bottom:12px;right:12px;background:var(--red);color:var(--cream-light);padding:8px 16px;border-radius:24px;box-shadow:var(--shadow);font-size:11px;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:5px;z-index:10;transition:.2s}
 .map-google-link:hover{background:var(--red-dark)}
 .hidden{display:none}
@@ -75,7 +71,7 @@ footer a{color:var(--red);text-decoration:none;font-weight:500}
 }
 @media(max-width:539px){
   .main{grid-template-columns:1fr;height:auto}
-  .map-container{height:240px}
+  .map-container{height:220px}
   .store-list{max-height:55vh;min-height:0;overflow-y:auto}
   nav{display:none}
   .controls{flex-direction:column;gap:8px}
@@ -118,16 +114,6 @@ footer a{color:var(--red);text-decoration:none;font-weight:500}
   </div>
   <div class="map-container" id="mapContainer">
     <div id="map" style="width:100%;height:100%"></div>
-    <div class="map-overlay">
-      <div class="map-legend">
-        <div class="legend-item"><div class="legend-dot" style="background:#2E7D32"></div>ライフ</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#E65100"></div>紀ノ国屋</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#1565C0"></div>沖縄ファミマ</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#7B1FA2"></div>東急ストア</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#0D47A1"></div>イオン九州</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#4E342E"></div>KALDI</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#C62828"></div>外食</div>
-      </div>
     </div>
     <a href="#" class="map-google-link" id="googleMapLink">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
