@@ -84,6 +84,16 @@ nav a:hover,nav a.active{color:var(--red)}
 .flavor-thumb-1{background:linear-gradient(145deg,#FFF8E8,#FDECC8)}
 .flavor-thumb-2{background:linear-gradient(145deg,#F0F7EA,#D8EDCA)}
 .flavor-thumb-3{background:linear-gradient(145deg,#2E1810,#5C3020)}
+.flavor-thumb-text{font-size:22px;font-weight:300;letter-spacing:4px}
+/* Hero product stack */
+.hero-product-stack{display:flex;flex-direction:column;gap:12px;padding:32px;width:100%}
+.hero-product-item{border-radius:6px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center}
+.hpi-1{background:#FFF8E8;border:1px solid #F0D8A0}
+.hpi-2{background:#F0F7EA;border:1px solid #C8E0B0}
+.hpi-3{background:#2E1810;border:1px solid #4A2818}
+.hpi-en{font-size:10px;letter-spacing:2px;font-weight:700;margin-bottom:4px;opacity:.5;text-transform:uppercase}
+.hpi-name{font-size:15px;font-weight:700}
+.hpi-kcal{font-size:11px;opacity:.45;letter-spacing:.5px}
 .flavor-info{padding:24px}
 .flavor-name{font-size:17px;font-weight:700;margin-bottom:4px}
 .flavor-en{font-size:11px;color:var(--text-light);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
@@ -183,7 +193,20 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.5);padding:64px 48px 40px}
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-visual-inner">🍦</div>
+      <div class="hero-product-stack">
+        <div class="hero-product-item hpi-1">
+          <div><div class="hpi-en">The Original</div><div class="hpi-name">穂の華</div></div>
+          <div class="hpi-kcal">113kcal</div>
+        </div>
+        <div class="hero-product-item hpi-2">
+          <div><div class="hpi-en">Uji Matcha</div><div class="hpi-name">匠・宇治抹茶</div></div>
+          <div class="hpi-kcal">115kcal</div>
+        </div>
+        <div class="hero-product-item hpi-3" style="color:#fff">
+          <div><div class="hpi-en" style="color:rgba(255,255,255,.4)">Dutch Chocolate</div><div class="hpi-name">芳醇オランダチョコ</div></div>
+          <div class="hpi-kcal" style="color:rgba(255,255,255,.35)">122kcal</div>
+        </div>
+      </div>
       <div class="hero-tagline">RICE · PLANT-BASED · JAPAN</div>
     </div>
   </div>
@@ -194,7 +217,11 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.5);padding:64px 48px 40px}
   <div class="section">
     <div class="about-grid">
       <div class="about-visual">
-        <span>🌾</span>
+        <div style="text-align:center;padding:32px">
+          <div style="font-size:11px;letter-spacing:4px;color:var(--red);font-weight:700;margin-bottom:20px">THE RICE CREAMERY</div>
+          <div style="font-size:96px;font-weight:900;line-height:1;letter-spacing:-4px;color:var(--text);opacity:.08;margin-bottom:20px;font-family:serif">米</div>
+          <div style="font-size:13px;color:var(--text-mid);line-height:2">日本のお米から生まれた<br>植物性アイスクリーム</div>
+        </div>
         <div class="about-badge">DAIRY FREE</div>
       </div>
       <div>
@@ -241,7 +268,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.5);padding:64px 48px 40px}
     <h2 class="section-title">フレーバー紹介</h2>
     <div class="flavors-grid">
       <a href="products.html" class="flavor-card">
-        <div class="flavor-thumb flavor-thumb-1">🍚</div>
+        <div class="flavor-thumb flavor-thumb-1"><span class="flavor-thumb-text" style="color:#9B7A20;opacity:.55">穂の華</span></div>
         <div class="flavor-info">
           <div class="flavor-name">穂の華</div>
           <div class="flavor-en">The Original · 113kcal</div>
@@ -250,7 +277,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.5);padding:64px 48px 40px}
         </div>
       </a>
       <a href="products.html" class="flavor-card">
-        <div class="flavor-thumb flavor-thumb-2">🍵</div>
+        <div class="flavor-thumb flavor-thumb-2"><span class="flavor-thumb-text" style="color:#4A7A30;opacity:.55">宇治抹茶</span></div>
         <div class="flavor-info">
           <div class="flavor-name">匠・宇治抹茶</div>
           <div class="flavor-en">Uji Matcha · 115kcal</div>
@@ -259,7 +286,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.5);padding:64px 48px 40px}
         </div>
       </a>
       <a href="products.html" class="flavor-card">
-        <div class="flavor-thumb flavor-thumb-3">🍫</div>
+        <div class="flavor-thumb flavor-thumb-3"><span class="flavor-thumb-text" style="font-size:18px;color:rgba(255,255,255,.45);letter-spacing:3px">オランダチョコ</span></div>
         <div class="flavor-info" style="color:#fff;background:#2E1810">
           <div class="flavor-name" style="color:#fff">芳醇オランダチョコ</div>
           <div class="flavor-en" style="color:rgba(255,255,255,.5)">Dutch Chocolate · 122kcal</div>
