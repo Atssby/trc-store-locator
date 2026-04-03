@@ -5,88 +5,115 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>取扱店舗 | The Rice Creamery</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--red:#E7312E;--red-dark:#C42826;--cream:#EDEBDA;--cream-light:#FDFCEB;--cream-white:#FAF9F5;--white:#FFF;--text:#333;--text-brown:#814444;--text-light:#8B7B6B;--border:#DDD8C8;--shadow:0 2px 12px rgba(0,0,0,.06)}
+:root{--red:#E7312E;--red-dark:#BF2420;--red-tint:#FFF2F1;--cream:#FAF9F5;--cream-deep:#F2EFE8;--white:#FFFFFF;--text:#333333;--text-mid:#666666;--text-light:#999999;--border:#E5E1D8;--shadow:0 2px 24px rgba(0,0,0,.06)}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Noto Sans JP','Zen Maru Gothic',sans-serif;background:var(--cream);color:var(--text);line-height:1.6}
-header{background:var(--red);color:var(--cream-light);padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.logo{font-family:'Zen Maru Gothic',serif;font-size:17px;font-weight:700;letter-spacing:2px}
-.logo .the{font-size:11px;font-weight:400;display:block;line-height:1;margin-bottom:-2px;letter-spacing:3px}
-nav a{color:rgba(253,252,235,.8);text-decoration:none;margin-left:28px;font-size:13px;font-weight:500;transition:.2s}
-nav a:hover{color:var(--cream-light)} nav a.active{color:var(--cream-light);border-bottom:2px solid var(--cream-light);padding-bottom:2px}
-.controls{max-width:1360px;margin:0 auto;padding:12px 20px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+body{font-family:'Noto Sans JP','Hiragino Sans','ヒラギノ角ゴシック',sans-serif;background:var(--cream);color:var(--text);line-height:1.6}
+img{display:block;max-width:100%}
+header{background:var(--white);border-bottom:1px solid var(--border);height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;position:sticky;top:0;z-index:100}
+.logo-link img{height:34px}
+nav{display:flex;align-items:center;gap:36px}
+nav a{font-size:13px;font-weight:500;color:var(--text-mid);letter-spacing:.3px;transition:color .2s;text-decoration:none}
+nav a:hover,nav a.active{color:var(--red)}
+.nav-shop{background:var(--red);color:#fff!important;padding:9px 22px;border-radius:4px;font-size:13px;font-weight:700;transition:background .2s}
+.nav-shop:hover{background:var(--red-dark)!important}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--text)}
+.controls{max-width:1360px;margin:0 auto;padding:16px 24px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:var(--white);border-bottom:1px solid var(--border)}
 .search-box{flex:1;min-width:200px;position:relative}
-.search-box input{width:100%;padding:10px 14px 10px 40px;border:1.5px solid var(--border);border-radius:24px;font-size:13px;font-family:inherit;background:var(--white);outline:none}
+.search-box input{width:100%;padding:10px 14px 10px 40px;border:1px solid var(--border);border-radius:4px;font-size:13px;font-family:inherit;background:var(--white);outline:none;transition:border-color .2s}
 .search-box input:focus{border-color:var(--red)}
-.search-box svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--red)}
-.filter-tabs{display:flex;border:1.5px solid var(--border);border-radius:24px;overflow:hidden;background:var(--white)}
-.filter-tab{padding:8px 16px;font-size:12px;font-weight:600;font-family:inherit;cursor:pointer;border:none;background:var(--white);color:var(--text-light);transition:.2s;display:flex;align-items:center;gap:5px}
-.filter-tab.active{background:var(--red);color:var(--cream-light)}
-.filter-tab:not(.active):hover{background:var(--cream-light)}
+.search-box svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text-light)}
+.filter-tabs{display:flex;gap:4px;flex-wrap:wrap}
+.filter-tab{padding:8px 16px;font-size:12px;font-weight:600;font-family:inherit;cursor:pointer;border:1px solid var(--border);background:var(--white);color:var(--text-mid);transition:.15s;display:flex;align-items:center;gap:5px;border-radius:4px}
+.filter-tab.active{background:var(--red);color:#fff;border-color:var(--red)}
+.filter-tab:not(.active):hover{border-color:var(--red);color:var(--red)}
 .filter-tab .count{background:rgba(0,0,0,.08);padding:1px 7px;border-radius:10px;font-size:10px}
 .filter-tab.active .count{background:rgba(255,255,255,.25)}
-.area-select{padding:8px 32px 8px 12px;border:1.5px solid var(--border);border-radius:24px;font-size:12px;font-family:inherit;background:var(--white);appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23814444' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;cursor:pointer}
-.main{max-width:1360px;margin:0 auto;padding:0 20px 24px;display:grid;grid-template-columns:380px 1fr;gap:14px;height:calc(100vh - 115px);min-height:480px}
+.area-select{padding:8px 32px 8px 12px;border:1px solid var(--border);border-radius:4px;font-size:12px;font-family:inherit;background:var(--white);appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23999' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;cursor:pointer;outline:none}
+.main{max-width:1360px;margin:0 auto;padding:16px 24px;display:grid;grid-template-columns:360px 1fr;gap:16px;height:calc(100vh - 137px);min-height:480px}
 .store-list{overflow-y:auto;padding-right:4px;min-height:0}
 .store-list::-webkit-scrollbar{width:3px}
 .store-list::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
-.results-count{font-size:12px;color:var(--text-light);padding:6px 0;border-bottom:1px solid var(--border);margin-bottom:8px}
+.results-count{font-size:12px;color:var(--text-light);padding:6px 0;border-bottom:1px solid var(--border);margin-bottom:10px}
 .results-count strong{color:var(--red)}
-.chain-group{margin-bottom:14px}
-.chain-header{display:flex;align-items:center;gap:8px;padding:6px 10px;background:var(--cream-light);border-radius:8px;margin-bottom:6px;cursor:pointer;font-size:13px;font-weight:700;color:var(--text-brown)}
+.chain-group{margin-bottom:12px}
+.chain-header{display:flex;align-items:center;gap:8px;padding:7px 12px;background:var(--cream-deep);border-radius:4px;margin-bottom:6px;cursor:pointer;font-size:13px;font-weight:700;color:var(--text)}
 .chain-header .chain-count{font-size:11px;font-weight:500;color:var(--text-light)}
 .chain-header .toggle{margin-left:auto;font-size:10px;color:var(--text-light)}
-.store-card{background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:10px 14px;margin-bottom:6px;cursor:pointer;transition:.2s;font-size:12px}
-.store-card:hover{border-color:var(--red);box-shadow:0 2px 10px rgba(231,49,46,.1);transform:translateY(-1px)}
+.store-card{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:12px 14px;margin-bottom:6px;cursor:pointer;transition:.15s;font-size:12px}
+.store-card:hover{border-color:var(--red);box-shadow:0 2px 10px rgba(231,49,46,.08);transform:translateY(-1px)}
 .store-card.active{border-color:var(--red);border-width:2px}
 .store-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}
 .store-name{font-size:13px;font-weight:700}
-.chain-badge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap}
+.chain-badge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:2px;white-space:nowrap}
 .badge-life{background:#E8F5E9;color:#2E7D32}
 .badge-kino{background:#FFF3E0;color:#E65100}
 .badge-famima{background:#E3F2FD;color:#1565C0}
 .badge-tokyu{background:#F3E5F5;color:#7B1FA2}
 .badge-aeon{background:#E3F2FD;color:#0D47A1}
 .badge-kaldi{background:#EFEBE9;color:#4E342E}
-.badge-gaishoku{background:#FFF3E0;color:#E65100}
+.badge-gaishoku{background:var(--red-tint);color:var(--red)}
 .store-address{color:var(--text-light);display:flex;align-items:flex-start;gap:4px}
-.store-address svg{flex-shrink:0;margin-top:2px;color:var(--red)}
-.map-container{border-radius:12px;overflow:hidden;border:1.5px solid var(--border);position:relative;background:var(--cream-white)}
+.store-address svg{flex-shrink:0;margin-top:2px;color:var(--text-light)}
+.map-container{border-radius:6px;overflow:hidden;border:1px solid var(--border);position:relative;background:var(--cream)}
 .map-container iframe{width:100%;height:100%;border:0}
-.map-google-link{position:absolute;bottom:12px;right:12px;background:var(--red);color:var(--cream-light);padding:8px 16px;border-radius:24px;box-shadow:var(--shadow);font-size:11px;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:5px;z-index:10;transition:.2s}
+.map-google-link{position:absolute;bottom:12px;right:12px;background:var(--red);color:#fff;padding:8px 16px;border-radius:4px;box-shadow:var(--shadow);font-size:11px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:5px;z-index:10;transition:.15s}
 .map-google-link:hover{background:var(--red-dark)}
 .hidden{display:none}
-footer{text-align:center;padding:20px;font-size:11px;color:var(--text-light);border-top:1px solid var(--border)}
-footer a{color:var(--red);text-decoration:none;font-weight:500}
+.disclaimer{max-width:1360px;margin:0 auto;padding:0 24px 12px}
+.disclaimer-inner{background:var(--cream-deep);border:1px solid var(--border);border-radius:4px;padding:10px 16px;font-size:11.5px;color:var(--text-light);line-height:1.8}
+footer{background:#1A1A1A;color:rgba(255,255,255,.5);padding:40px 48px 28px}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-logo img{height:24px;filter:brightness(0) invert(1);opacity:.6}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap}
+.footer-links a{font-size:12px;color:rgba(255,255,255,.4);transition:color .2s}
+.footer-links a:hover{color:rgba(255,255,255,.7)}
+.footer-copy{font-size:12px;width:100%;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);margin-top:8px}
 @media(max-width:860px) and (min-width:540px){
-  .main{grid-template-columns:260px 1fr;gap:10px;height:calc(100vh - 120px);min-height:400px}
-  .store-list{min-height:0;overflow-y:auto}
-  nav{display:none}
-  .controls{flex-direction:column;gap:8px}
-  .search-box{min-width:100%}
-  .filter-tabs{overflow-x:auto;white-space:nowrap;width:100%;-webkit-overflow-scrolling:touch}
-  .filter-tab{white-space:nowrap;flex-shrink:0;padding:8px 12px;font-size:11px}
-  .area-select{width:100%}
+  .main{grid-template-columns:260px 1fr;gap:12px;height:calc(100vh - 144px)}
+  nav .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .controls{flex-wrap:wrap}
+  .filter-tabs{overflow-x:auto;white-space:nowrap;flex-wrap:nowrap;-webkit-overflow-scrolling:touch}
+  .filter-tab{white-space:nowrap;flex-shrink:0}
 }
 @media(max-width:539px){
+  header{padding:0 20px;height:60px}
+  .nav-hamburger{display:flex}
+  nav .nav-links{display:none;position:absolute;top:60px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);padding:16px 20px;flex-direction:column;gap:0}
+  nav .nav-links.open{display:flex}
+  nav .nav-links a{padding:14px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text)}
+  nav .nav-links .nav-shop{margin-top:16px;text-align:center;border-bottom:none;border-radius:4px;padding:12px}
   .main{grid-template-columns:1fr;height:auto}
-  .map-container{height:220px}
-  .store-list{max-height:55vh;min-height:0;overflow-y:auto}
-  nav{display:none}
-  .controls{flex-direction:column;gap:8px}
+  .map-container{height:240px}
+  .store-list{max-height:52vh;min-height:0;overflow-y:auto}
+  .controls{flex-direction:column;gap:8px;padding:12px 16px}
   .search-box{min-width:100%}
-  .filter-tabs{overflow-x:auto;white-space:nowrap;width:100%;-webkit-overflow-scrolling:touch}
-  .filter-tab{white-space:nowrap;flex-shrink:0;padding:8px 12px;font-size:11px}
+  .filter-tabs{overflow-x:auto;white-space:nowrap;flex-wrap:nowrap;width:100%;-webkit-overflow-scrolling:touch}
+  .filter-tab{white-space:nowrap;flex-shrink:0;padding:7px 12px;font-size:11px}
   .area-select{width:100%}
+  .main{padding:12px 16px}
+  footer{padding:28px 20px 20px}
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:12px}
 }
 </style>
 </head>
 <body>
 <header>
-  <a href="#" class="logo"><img src="trc_logo.svg" alt="The Rice Creamery" style="height:36px"></a>
+  <a href="index.html" class="logo-link"><img src="trc_logo_dark.svg" alt="The Rice Creamery"></a>
   <nav>
-    <a href="index.html">ホーム</a><a href="products.html">商品紹介</a><a href="stores.html" class="active">取扱店舗</a><a href="story.html">ストーリー</a><a href="https://shop.the-ricecream.com/" target="_blank" class="nav-shop">オンラインショップ</a>
+    <div class="nav-links">
+      <a href="index.html">ホーム</a>
+      <a href="products.html">商品紹介</a>
+      <a href="stores.html" class="active">取扱店舗</a>
+      <a href="story.html">ストーリー</a>
+      <a href="https://shop.the-ricecream.com/" target="_blank" class="nav-shop">オンラインショップ</a>
+    </div>
+    <div class="nav-hamburger" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
   </nav>
 </header>
 
@@ -122,15 +149,24 @@ footer a{color:var(--red);text-decoration:none;font-weight:500}
   </div>
 </div>
 
-<div style="max-width:1360px;margin:0 auto;padding:0 20px 12px">
-  <div style="background:#FFF8F0;border:1px solid #F5D9C8;border-radius:8px;padding:10px 16px;font-size:11.5px;color:#7A5C3E;line-height:1.8">
+<div class="disclaimer">
+  <div class="disclaimer-inner">
     ※店舗の在庫状況・入荷状況により、一時的に品切れの場合がございます。<br>
     ※在庫状況は流動的であり、予告なく取り扱いが終了または一時的に在庫がなくなる場合がございます。
   </div>
 </div>
 <footer>
-  <p>&copy; 2026 The Rice Creamery by Kinish Inc.</p>
-  <p style="margin-top:4px">掲載情報は変更される場合があります。<a href="#">お取り扱いをご希望の店舗様はこちら ▸</a></p>
+  <div class="footer-inner">
+    <div class="footer-logo"><img src="trc_logo_dark.svg" alt="The Rice Creamery"></div>
+    <div class="footer-links">
+      <a href="index.html">ホーム</a>
+      <a href="products.html">商品紹介</a>
+      <a href="story.html">ストーリー</a>
+      <a href="news.html">ニュース</a>
+      <a href="https://shop.the-ricecream.com/" target="_blank">オンラインショップ</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 The Rice Creamery by Kinish Inc. &nbsp;｜&nbsp; <a href="https://shop.the-ricecream.com/policies/privacy-policy" target="_blank">プライバシーポリシー</a></div>
+  </div>
 </footer>
 
 <script>

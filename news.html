@@ -5,103 +5,165 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>ニュース | The Rice Creamery</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-
-:root{--red:#E7312E;--red-dark:#C42826;--cream:#EDEBDA;--cream-light:#FDFCEB;--cream-white:#FAF9F5;--white:#FFF;--text:#1F1F1F;--text-mid:#555;--text-light:#8B7B6B;--border:#DDD8C8;--shadow:0 2px 16px rgba(0,0,0,.07)}
+:root{--red:#E7312E;--red-dark:#BF2420;--red-tint:#FFF2F1;--cream:#FAF9F5;--cream-deep:#F2EFE8;--white:#FFFFFF;--text:#333333;--text-mid:#666666;--text-light:#999999;--border:#E5E1D8}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Noto Sans JP','Zen Maru Gothic',sans-serif;background:var(--cream-white);color:var(--text);line-height:1.7}
+body{font-family:'Noto Sans JP','Hiragino Sans','ヒラギノ角ゴシック',sans-serif;background:var(--white);color:var(--text);line-height:1.7;font-size:15px}
 a{text-decoration:none;color:inherit}
-header{background:var(--red);padding:0 40px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.15)}
-.logo-link img{display:block}
-nav{display:flex;align-items:center;gap:28px}
-nav a{color:rgba(253,252,235,.8);font-size:13px;font-weight:500;letter-spacing:.5px;transition:.2s;padding-bottom:2px}
-nav a:hover{color:var(--cream-light)}
-nav a.active{color:var(--cream-light);border-bottom:2px solid var(--cream-light)}
-.nav-shop{background:var(--cream-light);color:var(--red)!important;padding:7px 18px!important;border-radius:24px!important;font-weight:700!important;border:none!important;transition:.2s!important}
-.nav-shop:hover{background:var(--cream)!important}
-footer{background:var(--red);color:rgba(253,252,235,.75);text-align:center;padding:32px 20px;font-size:12px}
-footer a{color:var(--cream-light);font-weight:500}
-footer .footer-logo{margin-bottom:12px}
-footer p+p{margin-top:6px}
-.section{padding:80px 40px;max-width:1100px;margin:0 auto}
-.section-label{font-size:11px;letter-spacing:3px;color:var(--red);font-weight:700;text-transform:uppercase;margin-bottom:10px}
-.section-title{font-size:32px;font-weight:700;line-height:1.4;margin-bottom:20px;font-family:'Zen Maru Gothic',sans-serif}
-.section-body{font-size:15px;color:var(--text-mid);max-width:640px;line-height:1.9}
-.btn{display:inline-block;padding:14px 36px;border-radius:32px;font-weight:700;font-size:14px;letter-spacing:.5px;cursor:pointer;transition:.2s}
-.btn-red{background:var(--red);color:var(--cream-light)}
-.btn-red:hover{background:var(--red-dark)}
-.btn-outline{border:2px solid var(--red);color:var(--red)}
-.btn-outline:hover{background:var(--red);color:var(--cream-light)}
-@media(max-width:768px){header{padding:0 16px}.section{padding:48px 20px}.section-title{font-size:24px}nav{gap:14px}nav a{font-size:12px}}
-@media(max-width:540px){nav .hide-sp{display:none}}
-
-
-.news-hero{background:var(--red);color:var(--cream-light);padding:60px 40px;text-align:center}
-.news-container{max-width:800px;margin:0 auto;padding:60px 40px}
-.news-article{border-bottom:1px solid var(--border);padding:28px 0;display:flex;gap:24px}
-.news-article-date{font-size:12px;color:var(--text-light);min-width:90px;margin-top:4px}
-.news-article-content{}
-.news-article-tag{display:inline-block;background:var(--cream-light);color:var(--red);font-size:10px;font-weight:700;padding:2px 10px;border-radius:10px;margin-bottom:8px;letter-spacing:1px}
-.news-article-title{font-size:16px;font-weight:700;margin-bottom:8px;line-height:1.5}
-.news-article-body{font-size:13px;color:var(--text-mid);line-height:1.9}
-@media(max-width:768px){.news-container{padding:40px 20px}.news-article{flex-direction:column;gap:8px}}
-
+img{display:block;max-width:100%}
+header{background:var(--white);border-bottom:1px solid var(--border);height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;position:sticky;top:0;z-index:100}
+.logo-link img{height:34px}
+nav{display:flex;align-items:center;gap:36px}
+nav a{font-size:13px;font-weight:500;color:var(--text-mid);letter-spacing:.3px;transition:color .2s}
+nav a:hover,nav a.active{color:var(--red)}
+.nav-shop{background:var(--red);color:#fff!important;padding:9px 22px;border-radius:4px;font-size:13px;font-weight:700;transition:background .2s}
+.nav-shop:hover{background:var(--red-dark)!important}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--text)}
+.section-label{font-size:11px;letter-spacing:4px;color:var(--red);font-weight:700;text-transform:uppercase;margin-bottom:16px}
+.page-hero{padding:100px 48px 80px;max-width:860px;margin:0 auto}
+.page-hero h1{font-size:clamp(28px,3.5vw,46px);font-weight:700;line-height:1.35;letter-spacing:-.3px;margin-bottom:16px}
+.page-hero p{font-size:15px;color:var(--text-mid);line-height:2}
+.news-body{max-width:860px;margin:0 auto;padding:0 48px 120px}
+.news-year{font-size:11px;letter-spacing:3px;color:var(--text-light);font-weight:700;padding:28px 0 16px;border-bottom:2px solid var(--text);margin-bottom:0}
+.news-list{border-bottom:1px solid var(--border);margin-bottom:48px}
+.news-item{display:grid;grid-template-columns:100px 80px 1fr;gap:20px;padding:24px 0;border-top:1px solid var(--border);align-items:start;transition:opacity .2s}
+.news-item:hover{opacity:.65}
+.news-date{font-size:12px;color:var(--text-light);letter-spacing:.5px;padding-top:2px}
+.news-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.5px;padding:3px 10px;border-radius:2px}
+.tag-new{background:var(--red-tint);color:var(--red)}
+.tag-shop{background:var(--cream-deep);color:var(--text-mid)}
+.tag-info{background:#EEF4FF;color:#1A56DB}
+.news-title{font-size:14px;line-height:1.8;color:var(--text);padding-top:1px}
+.news-body-text{font-size:13px;color:var(--text-mid);line-height:1.9;margin-top:8px}
+footer{background:#1A1A1A;color:rgba(255,255,255,.5);padding:64px 48px 40px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:48px;gap:40px}
+.footer-logo img{height:28px;filter:brightness(0) invert(1);opacity:.7}
+.footer-nav{display:flex;gap:48px}
+.footer-nav-group h4{font-size:11px;letter-spacing:3px;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:16px;font-weight:700}
+.footer-nav-group a{display:block;font-size:13px;color:rgba(255,255,255,.5);margin-bottom:10px;transition:color .2s}
+.footer-nav-group a:hover{color:rgba(255,255,255,.85)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p,.footer-bottom a{font-size:12px}
+.footer-bottom a{color:rgba(255,255,255,.4);transition:color .2s}
+.footer-bottom a:hover{color:rgba(255,255,255,.7)}
+@media(max-width:768px){
+  header{padding:0 20px;height:60px}
+  .nav-hamburger{display:flex}
+  nav .nav-links{display:none;position:absolute;top:60px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);padding:16px 20px;flex-direction:column;gap:0}
+  nav .nav-links.open{display:flex}
+  nav .nav-links a{padding:14px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text)}
+  nav .nav-links .nav-shop{margin-top:16px;text-align:center;border-bottom:none;border-radius:4px;padding:12px}
+  .page-hero{padding:60px 20px 48px}
+  .news-body{padding:0 20px 80px}
+  .news-item{grid-template-columns:1fr;gap:6px}
+  .footer-top{flex-direction:column}
+  .footer-nav{flex-direction:column;gap:32px}
+  footer{padding:48px 20px 32px}
+}
 </style>
 </head>
 <body>
 <header>
-  <a href="index.html" class="logo-link"><img src="trc_logo.svg" alt="The Rice Creamery" style="height:38px"></a>
-  <nav><a href="index.html">ホーム</a><a href="products.html">商品紹介</a><a href="stores.html">取扱店舗</a><a href="story.html">ストーリー</a><a href="https://shop.the-ricecream.com/" target="_blank" class="nav-shop">オンラインショップ</a></nav>
+  <a href="index.html" class="logo-link"><img src="trc_logo_dark.svg" alt="The Rice Creamery"></a>
+  <nav>
+    <div class="nav-links">
+      <a href="index.html">ホーム</a>
+      <a href="products.html">商品紹介</a>
+      <a href="stores.html">取扱店舗</a>
+      <a href="story.html">ストーリー</a>
+      <a href="https://shop.the-ricecream.com/" target="_blank" class="nav-shop">オンラインショップ</a>
+    </div>
+    <div class="nav-hamburger" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
 </header>
 
-<div class="news-hero">
-  <p style="font-size:11px;letter-spacing:3px;opacity:.75;margin-bottom:10px">NEWS</p>
-  <h1 style="font-size:28px;font-weight:700;font-family:'Zen Maru Gothic',sans-serif">最新情報</h1>
+<div class="page-hero">
+  <p class="section-label">News</p>
+  <h1>最新情報</h1>
+  <p>The Rice Creameryに関するお知らせをご覧いただけます。</p>
 </div>
-<div class="news-container">
-  <div class="news-article">
-    <div class="news-article-date">2025.08.06</div>
-    <div class="news-article-content">
-      <span class="news-article-tag">取扱開始</span>
-      <h2 class="news-article-title">The Rice Creamery、東急ストア全27店舗での取り扱いを開始しました。</h2>
-      <p class="news-article-body">東急ストア（首都圏27店舗）にて、The Rice Creamery カップアイス3フレーバーの取り扱いが始まりました。店舗一覧は<a href="stores.html" style="color:var(--red)">取扱店舗ページ</a>よりご確認いただけます。</p>
-    </div>
+
+<div class="news-body">
+  <div class="news-year">2025</div>
+  <div class="news-list">
+    <a href="#" class="news-item">
+      <span class="news-date">2025.08.06</span>
+      <span class="news-tag tag-new">新着</span>
+      <div>
+        <div class="news-title">The Rice Creamery、東急ストア全27店舗での取り扱いを開始しました。</div>
+        <p class="news-body-text">東急ストア27店舗にて、The Rice Creamery全3フレーバーのお取り扱いを開始いたしました。</p>
+      </div>
+    </a>
+    <a href="#" class="news-item">
+      <span class="news-date">2025.08.06</span>
+      <span class="news-tag tag-shop">取扱店</span>
+      <div>
+        <div class="news-title">成城石井 オンラインショップにて取り扱いを開始しました。</div>
+        <p class="news-body-text">成城石井のオンラインショップにて、The Rice Creamery全フレーバーをご購入いただけるようになりました。</p>
+      </div>
+    </a>
+    <a href="#" class="news-item">
+      <span class="news-date">2025.06.15</span>
+      <span class="news-tag tag-shop">取扱店</span>
+      <div><div class="news-title">紀ノ国屋 全10店舗での取り扱いを開始しました。</div></div>
+    </a>
+    <a href="#" class="news-item">
+      <span class="news-date">2025.04.01</span>
+      <span class="news-tag tag-info">お知らせ</span>
+      <div><div class="news-title">The Rice Creamery 公式ウェブサイトをリニューアルしました。</div></div>
+    </a>
   </div>
-  <div class="news-article">
-    <div class="news-article-date">2025.08.06</div>
-    <div class="news-article-content">
-      <span class="news-article-tag">EC開始</span>
-      <h2 class="news-article-title">成城石井 オンラインショップにて取り扱いを開始しました。</h2>
-      <p class="news-article-body">成城石井のオンラインショップにて、The Rice Creamery のカップアイスセットをご購入いただけるようになりました。</p>
-    </div>
-  </div>
-  <div class="news-article">
-    <div class="news-article-date">2025.04.01</div>
-    <div class="news-article-content">
-      <span class="news-article-tag">取扱開始</span>
-      <h2 class="news-article-title">紀ノ国屋 全10店舗での取り扱いを開始しました。</h2>
-      <p class="news-article-body">高品質な食材を取り揃える紀ノ国屋（全10店舗）にて、The Rice Creamery の取り扱いが始まりました。</p>
-    </div>
-  </div>
-  <div class="news-article">
-    <div class="news-article-date">2024.10.15</div>
-    <div class="news-article-content">
-      <span class="news-article-tag">取扱開始</span>
-      <h2 class="news-article-title">ライフ 首都圏48店舗での取り扱いを開始しました。</h2>
-      <p class="news-article-body">スーパーマーケット「ライフ」の首都圏48店舗にて、The Rice Creamery のカップアイスをお買い求めいただけるようになりました。</p>
-    </div>
+
+  <div class="news-year">2024</div>
+  <div class="news-list">
+    <a href="#" class="news-item">
+      <span class="news-date">2024.11.20</span>
+      <span class="news-tag tag-shop">取扱店</span>
+      <div><div class="news-title">ライフ 48店舗での取り扱いを開始しました。</div></div>
+    </a>
+    <a href="#" class="news-item">
+      <span class="news-date">2024.09.01</span>
+      <span class="news-tag tag-info">お知らせ</span>
+      <div>
+        <div class="news-title">The Rice Creamery、販売開始のお知らせ。</div>
+        <p class="news-body-text">乳・卵不使用の植物性アイスクリーム「The Rice Creamery」の販売を開始いたしました。</p>
+      </div>
+    </a>
   </div>
 </div>
 
 <footer>
-  <div class="footer-logo"><img src="trc_logo.svg" alt="The Rice Creamery" style="height:28px;opacity:.9"></div>
-  <p>&copy; 2026 The Rice Creamery by Kinish Inc. All rights reserved.</p>
-  <p style="margin-top:8px">
-    <a href="https://shop.the-ricecream.com/policies/privacy-policy" target="_blank">プライバシーポリシー</a>
-    &nbsp;｜&nbsp;
-    <a href="https://shop.the-ricecream.com/policies/legal-notice" target="_blank">特定商取引法に基づく表記</a>
-  </p>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-logo"><img src="trc_logo_dark.svg" alt="The Rice Creamery"></div>
+      <div class="footer-nav">
+        <div class="footer-nav-group">
+          <h4>About</h4>
+          <a href="story.html">ストーリー</a>
+          <a href="products.html">商品紹介</a>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Shop</h4>
+          <a href="stores.html">取扱店舗</a>
+          <a href="https://shop.the-ricecream.com/" target="_blank">オンラインショップ</a>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Info</h4>
+          <a href="news.html">ニュース</a>
+          <a href="https://shop.the-ricecream.com/policies/privacy-policy" target="_blank">プライバシーポリシー</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 The Rice Creamery by Kinish Inc.</p>
+      <a href="https://shop.the-ricecream.com/policies/legal-notice" target="_blank">特定商取引法に基づく表記</a>
+    </div>
+  </div>
 </footer>
 </body>
 </html>
