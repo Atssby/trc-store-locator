@@ -267,7 +267,7 @@ function render(){
       card.setAttribute('data-no', s.no);
       card.innerHTML = `
         <div class="store-card-header">
-          <div class="store-name">${s.chain} ${s.name}</div>
+          <div class="store-name">${s.name}</div>
           <span class="chain-badge ${badgeClass[s.chain]||''}">${s.chain.replace('沖縄ファミリーマート','沖縄ファミマ')}</span>
         </div>
         <div class="store-address">
@@ -343,7 +343,7 @@ function addMarkersFromStores(storeList) {
     var marker = new google.maps.Marker({
       position: { lat: parseFloat(s.lat), lng: parseFloat(s.lng) },
       map: map,
-      title: s.chain + ' ' + s.name,
+      title: s.name,
       icon: {
         url: pinSvg(markerColors[s.chain] || '#E7312E'),
         scaledSize: new google.maps.Size(28, 36),
@@ -373,7 +373,7 @@ function panToStore(s) {
   if (marker) {
     infoWindow.setContent(`
       <div style="font-family:'Noto Sans JP',sans-serif;min-width:180px;padding:4px 2px">
-        <div style="font-weight:700;font-size:13px;margin-bottom:4px">${s.chain} ${s.name}</div>
+        <div style="font-weight:700;font-size:13px;margin-bottom:4px">${s.name}</div>
         <div style="font-size:12px;color:#666">${s.address || '住所未登録'}</div>
       </div>`);
     infoWindow.open(map, marker);
