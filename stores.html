@@ -124,11 +124,11 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.5);padding:40px 48px 28px}
     <input type="text" id="searchInput" placeholder="店舗名・地名で検索...">
   </div>
   <div class="filter-tabs" id="filterTabs">
-    <button class="filter-tab active" data-filter="all">すべて <span class="count" id="countAll">429</span></button>
-    <button class="filter-tab" data-filter="ライフ">ライフ <span class="count" id="countLife">48</span></button>
-    <button class="filter-tab" data-filter="紀ノ国屋">紀ノ国屋 <span class="count" id="countKino">10</span></button>
-    <button class="filter-tab" data-filter="沖縄ファミリーマート">沖縄ファミマ <span class="count" id="countFM">337</span></button>
-    <button class="filter-tab" data-filter="東急ストア">東急ストア <span class="count" id="countTokyu">27</span></button>
+    <button class="filter-tab active" data-filter="all">すべて <span class="count" id="countAll">-</span></button>
+    <button class="filter-tab" data-filter="ライフ">ライフ <span class="count" id="countLife">-</span></button>
+    <button class="filter-tab" data-filter="紀ノ国屋">紀ノ国屋 <span class="count" id="countKino">-</span></button>
+    <button class="filter-tab" data-filter="ファミリーマート">沖縄ファミマ <span class="count" id="countFM">-</span></button>
+    <button class="filter-tab" data-filter="東急ストア">東急ストア <span class="count" id="countTokyu">-</span></button>
   </div>
   <select class="area-select" id="areaSelect">
     <option value="">全エリア</option>
@@ -172,7 +172,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.5);padding:40px 48px 28px}
 
 <script>
 let allStores = [];
-const badgeClass = {"ライフ":"badge-life","紀ノ国屋":"badge-kino","沖縄ファミリーマート":"badge-famima","東急ストア":"badge-tokyu","イオン九州":"badge-aeon","KALDI":"badge-kaldi","外食":"badge-gaishoku"};
+const badgeClass = {"ライフ":"badge-life","紀ノ国屋":"badge-kino","沖縄ファミリーマート":"badge-famima","ファミリーマート":"badge-famima","東急ストア":"badge-tokyu","プレッセ":"badge-tokyu","プレッセプレミアム":"badge-tokyu","イオン九州":"badge-aeon","KALDI":"badge-kaldi","外食":"badge-gaishoku"};
 
 fetch("stores.json")
   .then(r => r.json())
@@ -181,6 +181,14 @@ fetch("stores.json")
     buildAreaOptions();
     render();
     if (typeof initMap === "function" && window.google) initMap();
+    // フィルターボタンのカウントを動的更新
+    const fm = ['ファミリーマート','沖縄ファミリーマート'];
+    const tokyu = ['東急ストア','プレッセ','プレッセプレミアム'];
+    document.getElementById('countAll').textContent = data.length;
+    document.getElementById('countLife').textContent = data.filter(s=>s.chain==='ライフ').length;
+    document.getElementById('countKino').textContent = data.filter(s=>s.chain==='紀ノ国屋').length;
+    document.getElementById('countFM').textContent = data.filter(s=>fm.includes(s.chain)).length;
+    document.getElementById('countTokyu').textContent = data.filter(s=>tokyu.includes(s.chain)).length;
   });
 
 function buildAreaOptions(){
@@ -210,10 +218,14 @@ function buildAreaOptions(){
 function render(){
   const q = document.getElementById('searchInput').value.toLowerCase();
   const chain = document.querySelector('.filter-tab.active').dataset.filter;
+  const filterGroups = {
+    '東急ストア': ['東急ストア','プレッセ','プレッセプレミアム'],
+    'ファミリーマート': ['ファミリーマート','沖縄ファミリーマート'],
+  };
   const area = document.getElementById('areaSelect').value;
 
   let filtered = allStores.filter(s=>{
-    if(chain!=='all' && s.chain!==chain) return false;
+    if(chain!=='all'){const group=filterGroups[chain]||[chain];if(!group.includes(s.chain))return false;}
     if(area && !(s.address||'').includes(area)) return false;
     if(q){
       const text = `${s.chain}${s.name}${s.address}${s.area}`.toLowerCase();
@@ -235,7 +247,7 @@ function render(){
   container.innerHTML = '';
   document.getElementById('storeList').scrollTop = 0;
 
-  const chainOrder = ['ライフ','紀ノ国屋','東急ストア','イオン九州','KALDI','外食','沖縄ファミリーマート'];
+  const chainOrder = ['ライフ','紀ノ国屋','東急ストア','プレッセ','プレッセプレミアム','イオン九州','KALDI','外食','ファミリーマート','沖縄ファミリーマート'];
   chainOrder.forEach(ch=>{
     if(!groups[ch]) return;
     const stores = groups[ch];
@@ -302,7 +314,10 @@ const markerColors = {
   'ライフ': '#2E7D32',
   '紀ノ国屋': '#E65100',
   '沖縄ファミリーマート': '#1565C0',
+  'ファミリーマート': '#1565C0',
   '東急ストア': '#7B1FA2',
+  'プレッセ': '#7B1FA2',
+  'プレッセプレミアム': '#7B1FA2',
   'イオン九州': '#0D47A1',
   'KALDI': '#4E342E',
   '外食': '#C62828'
