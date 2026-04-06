@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>匠・宇治抹茶 | The Rice Creamery</title>
+<title>穂の華 | The Rice Creamery</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -23,8 +23,10 @@ nav a:hover,nav a.active{color:var(--red)}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
 .nav-hamburger span{display:block;width:22px;height:2px;background:var(--text)}
 .section-label{font-size:13px;letter-spacing:3px;color:var(--red);font-weight:700;text-transform:uppercase;margin-bottom:16px}
+
+/* PRODUCT HERO */
 .product-hero{max-width:1100px;margin:0 auto;padding:80px 48px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.product-visual{border-radius:8px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(145deg,#F0F7EA,#D8EDCA)}
+.product-visual{border-radius:8px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(145deg,#FFF8E8,#FDECC8)}
 .product-visual img{width:100%;height:100%;object-fit:cover}
 .product-info .flavor-label{font-size:11px;letter-spacing:3px;color:var(--red);font-weight:700;text-transform:uppercase;margin-bottom:12px}
 .product-info h1{font-size:clamp(28px,3.5vw,42px);font-weight:700;line-height:1.3;margin-bottom:6px}
@@ -35,20 +37,28 @@ nav a:hover,nav a.active{color:var(--red)}
 .tag-red{background:var(--red-tint);color:var(--red)}
 .product-info .kcal{font-size:13px;color:var(--text-light);padding-top:20px;border-top:1px solid var(--border)}
 .product-info .kcal strong{color:var(--text);font-weight:700}
+
+/* DETAIL SECTIONS */
 .detail-section{max-width:860px;margin:0 auto;padding:0 48px 80px}
 .detail-block{margin-bottom:56px}
 .detail-block:last-child{margin-bottom:0}
 .detail-block h2{font-size:20px;font-weight:700;margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--red)}
+
+/* INGREDIENTS TABLE */
 .ingredients-table{width:100%;border-collapse:collapse}
 .ingredients-table th,.ingredients-table td{padding:14px 16px;text-align:left;font-size:14px;border-bottom:1px solid var(--border)}
 .ingredients-table th{width:140px;background:var(--cream);font-weight:700;color:var(--text);white-space:nowrap}
 .ingredients-table td{color:var(--text-mid);line-height:1.8}
+
+/* NUTRITION TABLE */
 .nutrition-table{width:100%;max-width:480px;border-collapse:collapse}
 .nutrition-table th,.nutrition-table td{padding:12px 16px;font-size:14px;border-bottom:1px solid var(--border)}
 .nutrition-table thead th{background:var(--cream);font-weight:700;text-align:left}
 .nutrition-table tbody th{font-weight:500;text-align:left}
 .nutrition-table tbody td{text-align:right;font-weight:700;color:var(--text)}
 .nutrition-note{font-size:12px;color:var(--text-light);margin-top:8px}
+
+/* ALLERGEN */
 .allergen-box{background:var(--red-tint);border:1px solid rgba(231,49,46,.15);border-radius:8px;padding:24px 28px}
 .allergen-box h3{font-size:14px;font-weight:700;color:var(--red);margin-bottom:12px;display:flex;align-items:center;gap:8px}
 .allergen-box h3::before{content:'';display:inline-block;width:4px;height:16px;background:var(--red);border-radius:2px}
@@ -56,11 +66,15 @@ nav a:hover,nav a.active{color:var(--red)}
 .allergen-item:last-child{margin-bottom:0}
 .allergen-label{font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px}
 .allergen-value{font-size:14px;color:var(--text-mid);line-height:1.8}
+
+/* CTA */
 .product-cta{background:var(--cream);padding:64px 48px;text-align:center}
 .product-cta h2{font-size:clamp(20px,2.5vw,28px);font-weight:700;margin-bottom:12px}
 .product-cta p{font-size:14px;color:var(--text-mid);margin-bottom:32px}
 .btn-shop{display:inline-block;background:var(--red);color:#fff;padding:16px 48px;border-radius:4px;font-size:15px;font-weight:700;letter-spacing:.3px;transition:background .2s}
 .btn-shop:hover{background:var(--red-dark)}
+
+/* OTHER FLAVORS */
 .other-flavors{max-width:1100px;margin:0 auto;padding:80px 48px}
 .other-flavors h2{font-size:20px;font-weight:700;margin-bottom:32px;text-align:center}
 .flavor-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
@@ -73,10 +87,14 @@ nav a:hover,nav a.active{color:var(--red)}
 .flavor-card-en{font-size:11px;color:var(--text-light);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
 .flavor-card-link{font-size:13px;color:var(--red);font-weight:500}
 .flavor-card-link::after{content:' →'}
+
+/* BREADCRUMB */
 .breadcrumb{max-width:1100px;margin:0 auto;padding:16px 48px 0;font-size:12px;color:var(--text-light)}
 .breadcrumb a{color:var(--text-light);transition:color .2s}
 .breadcrumb a:hover{color:var(--red)}
 .breadcrumb span{margin:0 8px}
+
+/* FOOTER */
 footer{background:#1A1A1A;color:rgba(255,255,255,.5);padding:64px 48px 40px}
 .footer-inner{max-width:1100px;margin:0 auto}
 .footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:48px;gap:40px}
@@ -89,6 +107,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.5);padding:64px 48px 40px}
 .footer-bottom p{font-size:12px}
 .footer-bottom a{color:rgba(255,255,255,.4);font-size:12px;transition:color .2s}
 .footer-bottom a:hover{color:rgba(255,255,255,.7)}
+
 @media(max-width:768px){
   header{padding:0 20px;height:60px}
   .nav-hamburger{display:flex}
@@ -127,26 +146,26 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.5);padding:64px 48px 40px}
 </header>
 
 <div class="breadcrumb">
-  <a href="../index.html">ホーム</a><span>/</span><a href="../products.html">商品紹介</a><span>/</span>匠・宇治抹茶
+  <a href="../index.html">ホーム</a><span>/</span><a href="../products.html">商品紹介</a><span>/</span>穂の華
 </div>
 
 <!-- PRODUCT HERO -->
 <div class="product-hero">
   <div class="product-visual">
-    <img src="https://ja.the-ricecream.com/wp/wp-content/themes/ja-ricecream/assets/images/flavor_02_sp.webp" alt="匠・宇治抹茶">
+    <img src="https://ja.the-ricecream.com/wp/wp-content/themes/ja-ricecream/assets/images/flavor_01_sp.webp" alt="穂の華">
   </div>
   <div class="product-info">
-    <p class="flavor-label">Flavor 02</p>
-    <h1>匠・宇治抹茶</h1>
-    <p class="flavor-en">Uji Matcha</p>
-    <p class="desc">老舗茶商・堀田商店の宇治抹茶を使用。余計なものを加えず、まっすぐな抹茶の風味をお届けします。茶道が育んだ日本の美意識を、アイスクリームという形で表現しました。</p>
+    <p class="flavor-label">Flavor 01</p>
+    <h1>穂の華</h1>
+    <p class="flavor-en">The Original</p>
+    <p class="desc">お米本来のまろやかな甘みと、カシューナッツのコクが溶け合うオリジナルフレーバー。シンプルな素材だけで作り上げた、The Rice Creameryの原点ともいえる一品です。どんな気分のときにも寄り添う、やさしい味わい。</p>
     <div class="tags">
       <span class="tag tag-red">Dairy Free</span>
       <span class="tag tag-red">Vegan</span>
       <span class="tag">Gluten Free</span>
-      <span class="tag">宇治抹茶使用</span>
+      <span class="tag">国産米使用</span>
     </div>
-    <p class="kcal">1個（90ml）あたり <strong>119 kcal</strong></p>
+    <p class="kcal">1個（90ml）あたり <strong>117 kcal</strong></p>
   </div>
 </div>
 
@@ -162,7 +181,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.5);padding:64px 48px 40px}
       </tr>
       <tr>
         <th>原材料名</th>
-        <td>米加工品（国内製造）、カシューナッツペースト、砂糖、ぶどう糖、食物繊維、抹茶、食塩／乳化剤、安定剤（増粘多糖類）</td>
+        <td>米加工品（国内製造）、カシューナッツペースト、砂糖、ぶどう糖、食物繊維、食塩／乳化剤、安定剤（増粘多糖類）</td>
       </tr>
       <tr>
         <th>内容量</th>
@@ -197,10 +216,10 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.5);padding:64px 48px 40px}
         <tr><th colspan="2">1個（90ml）あたり</th></tr>
       </thead>
       <tbody>
-        <tr><th>エネルギー</th><td>119 kcal</td></tr>
-        <tr><th>たんぱく質</th><td>2.7 g</td></tr>
-        <tr><th>脂質</th><td>4.5 g</td></tr>
-        <tr><th>炭水化物</th><td>19.4 g</td></tr>
+        <tr><th>エネルギー</th><td>117 kcal</td></tr>
+        <tr><th>たんぱく質</th><td>2.4 g</td></tr>
+        <tr><th>脂質</th><td>4.3 g</td></tr>
+        <tr><th>炭水化物</th><td>19.2 g</td></tr>
         <tr><th>食塩相当量</th><td>0.2 g</td></tr>
       </tbody>
     </table>
@@ -225,17 +244,17 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.5);padding:64px 48px 40px}
 <div class="other-flavors">
   <h2>ほかのフレーバー</h2>
   <div class="flavor-grid">
-    <a href="hono-hana.html" class="flavor-card">
-      <div class="flavor-card-img" style="background:linear-gradient(145deg,#FFF8E8,#FDECC8)">
-        <img src="https://ja.the-ricecream.com/wp/wp-content/themes/ja-ricecream/assets/images/flavor_01_sp.webp" alt="穂の華">
+    <a href="matcha.html" class="flavor-card">
+      <div class="flavor-card-img" style="background:linear-gradient(145deg,#F0F7EA,#D8EDCA)">
+        <img src="https://ja.the-ricecream.com/wp/wp-content/themes/ja-ricecream/assets/images/flavor_02_sp.webp" alt="匠・宇治抹茶">
       </div>
       <div class="flavor-card-body">
-        <div class="flavor-card-name">穂の華</div>
-        <div class="flavor-card-en">The Original</div>
+        <div class="flavor-card-name">匠・宇治抹茶</div>
+        <div class="flavor-card-en">Uji Matcha</div>
         <span class="flavor-card-link">詳しく見る</span>
       </div>
     </a>
-    <a href="night-bloom.html" class="flavor-card">
+    <a href="choco.html" class="flavor-card">
       <div class="flavor-card-img" style="background:linear-gradient(145deg,#2E1810,#5C3020)">
         <img src="https://ja.the-ricecream.com/wp/wp-content/themes/ja-ricecream/assets/images/flavor_03_sp.webp" alt="芳醇オランダチョコ">
       </div>
