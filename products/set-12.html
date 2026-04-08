@@ -113,6 +113,22 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.5);padding:64px 48px 40px}
 .footer-bottom a{color:rgba(255,255,255,.4);font-size:12px;transition:color .2s}
 .footer-bottom a:hover{color:rgba(255,255,255,.7)}
 
+/* ACCORDION */
+.accordion{border-top:2px solid var(--red)}
+.accordion-item{border-bottom:1px solid var(--border)}
+.accordion-header{display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;-webkit-user-select:none;user-select:none}
+.accordion-header:hover h3{color:var(--red)}
+.accordion-header h3{font-size:16px;font-weight:700;margin:0;display:flex;align-items:center;gap:8px;transition:color .2s}
+.accordion-header h3::before{content:'';display:inline-block;width:4px;height:16px;background:var(--red);border-radius:2px}
+.accordion-icon{width:28px;height:28px;position:relative;flex-shrink:0}
+.accordion-icon::before,.accordion-icon::after{content:'';position:absolute;background:var(--text-light);transition:transform .3s}
+.accordion-icon::before{width:16px;height:2px;top:13px;left:6px}
+.accordion-icon::after{width:2px;height:16px;top:6px;left:13px}
+.accordion-item.open .accordion-icon::after{transform:rotate(90deg)}
+.accordion-content{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.accordion-item.open .accordion-content{max-height:1200px}
+.accordion-content-inner{padding:0 0 24px}
+
 @media(max-width:768px){
   header{padding:0 20px;height:60px}
   .nav-hamburger{display:flex}
@@ -172,7 +188,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.5);padding:64px 48px 40px}
     <h1>カップアイスセット<br>3種12個入</h1>
     <p class="product-sub">全フレーバー各4個</p>
     <div class="price">¥4,480<span> 税込</span></div>
-    <p class="desc">ギフト・まとめ買いに最適。穂の華・匠・宇治抹茶・芳醇オランダチョコの3種を各4個、合計12個お届けします。大切な方への贈り物や、ご家族でたっぷりお楽しみいただけるセットです。</p>
+    <p class="desc">大切な方への贈り物に最適な12個入セット。穂の華・匠・宇治抹茶・芳醇オランダチョコの3種を各4個、合計12個を専用ギフトBOXでお届けします。乳・卵・グルテンフリーだから、健康を気にされる方やアレルギーをお持ちの方にも安心して贈れます。</p>
     <div class="tags">
       <span class="tag tag-red">Dairy Free</span>
       <span class="tag tag-red">Vegan</span>
@@ -229,39 +245,63 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.5);padding:64px 48px 40px}
 <!-- INFO -->
 <div class="info-section">
   <div class="info-inner">
-    <h2 style="font-size:20px;font-weight:700;padding-bottom:12px;border-bottom:2px solid var(--red)">商品情報</h2>
-    <div class="info-grid">
-      <div class="info-block">
-        <h3>基本情報</h3>
-        <table class="info-table">
-          <tr><th>名称</th><td>氷菓</td></tr>
-          <tr><th>内容量</th><td>90ml × 12個（各フレーバー4個）</td></tr>
-          <tr><th>保存方法</th><td>要冷凍（-18℃以下で保存）</td></tr>
-          <tr><th>配送方法</th><td>ヤマト運輸 クール便（冷凍）</td></tr>
-          <tr><th>発送目安</th><td>ご注文から4営業日以内</td></tr>
-        </table>
+    <h2 style="font-size:20px;font-weight:700;margin-bottom:8px">商品情報</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3>基本情報</h3>
+          <span class="accordion-icon"></span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <table class="info-table">
+              <tr><th>名称</th><td>氷菓</td></tr>
+              <tr><th>内容量</th><td>90ml × 12個（各フレーバー4個）</td></tr>
+              <tr><th>保存方法</th><td>要冷凍（-18℃以下で保存）</td></tr>
+              <tr><th>配送方法</th><td>ヤマト運輸 クール便（冷凍）</td></tr>
+              <tr><th>発送目安</th><td>ご注文から4営業日以内</td></tr>
+            </table>
+          </div>
+        </div>
       </div>
-      <div class="info-block">
-        <h3>栄養成分（1個あたり）</h3>
-        <table class="info-table">
-          <tr><th></th><td><strong>穂の華</strong></td><td><strong>宇治抹茶</strong></td><td><strong>チョコ</strong></td></tr>
-          <tr><th>エネルギー</th><td>117kcal</td><td>119kcal</td><td>126kcal</td></tr>
-          <tr><th>たんぱく質</th><td>2.4g</td><td>2.7g</td><td>2.7g</td></tr>
-          <tr><th>脂質</th><td>4.3g</td><td>4.5g</td><td>4.9g</td></tr>
-          <tr><th>炭水化物</th><td>19.2g</td><td>19.4g</td><td>20.0g</td></tr>
-          <tr><th>食塩相当量</th><td>0.2g</td><td>0.2g</td><td>0.2g</td></tr>
-        </table>
-        <p class="note">※推定値</p>
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3>栄養成分（1個あたり）</h3>
+          <span class="accordion-icon"></span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <table class="info-table">
+              <tr><th></th><td><strong>穂の華</strong></td><td><strong>宇治抹茶</strong></td><td><strong>チョコ</strong></td></tr>
+              <tr><th>エネルギー</th><td>117kcal</td><td>119kcal</td><td>126kcal</td></tr>
+              <tr><th>たんぱく質</th><td>2.4g</td><td>2.7g</td><td>2.7g</td></tr>
+              <tr><th>脂質</th><td>4.3g</td><td>4.5g</td><td>4.9g</td></tr>
+              <tr><th>炭水化物</th><td>19.2g</td><td>19.4g</td><td>20.0g</td></tr>
+              <tr><th>食塩相当量</th><td>0.2g</td><td>0.2g</td><td>0.2g</td></tr>
+            </table>
+            <p class="note">※推定値</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="allergen-box" style="margin-top:32px">
-      <div class="allergen-item">
-        <div class="allergen-label">アレルゲン（特定原材料等28品目）</div>
-        <div class="allergen-value">カシューナッツ</div>
-      </div>
-      <div class="allergen-item">
-        <div class="allergen-label">コンタミネーション（同一設備での製造）</div>
-        <div class="allergen-value">乳成分、卵、小麦、落花生、くるみを使用した製品と共通の設備で製造しています。</div>
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3>アレルギー情報</h3>
+          <span class="accordion-icon"></span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <div class="allergen-box">
+              <div class="allergen-item">
+                <div class="allergen-label">アレルゲン（特定原材料等28品目）</div>
+                <div class="allergen-value">カシューナッツ</div>
+              </div>
+              <div class="allergen-item">
+                <div class="allergen-label">コンタミネーション（同一設備での製造）</div>
+                <div class="allergen-value">乳成分、卵、小麦、落花生、くるみを使用した製品と共通の設備で製造しています。</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -285,6 +325,32 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.5);padding:64px 48px 40px}
       <div class="shipping-icon">🎁</div>
       <h4>ギフト対応</h4>
       <p>贈り物にもぴったり。専用BOXでお届けします。</p>
+    </div>
+  </div>
+</div>
+
+<!-- GIFT -->
+<div style="background:var(--red-tint);padding:64px 48px">
+  <div style="max-width:860px;margin:0 auto;text-align:center">
+    <p class="section-label">Gift</p>
+    <h2 style="font-size:clamp(20px,2.5vw,28px);font-weight:700;margin-bottom:16px">大切な方への贈り物に</h2>
+    <p style="font-size:14px;color:var(--text-mid);line-height:2;max-width:520px;margin:0 auto 32px">乳・卵・グルテンフリーのアイスクリームは、健康を気にされる方、アレルギーをお持ちの方にも安心してお届けできます。専用BOXでお届けするので、贈り物に最適です。</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:600px;margin:0 auto">
+      <div style="background:var(--white);border-radius:8px;padding:20px 16px;text-align:center">
+        <div style="font-size:24px;margin-bottom:8px">🎁</div>
+        <div style="font-size:13px;font-weight:700;margin-bottom:4px">専用ギフトBOX</div>
+        <div style="font-size:11px;color:var(--text-light)">そのまま贈れる</div>
+      </div>
+      <div style="background:var(--white);border-radius:8px;padding:20px 16px;text-align:center">
+        <div style="font-size:24px;margin-bottom:8px">🌿</div>
+        <div style="font-size:13px;font-weight:700;margin-bottom:4px">アレルギー配慮</div>
+        <div style="font-size:11px;color:var(--text-light)">乳・卵・グルテンフリー</div>
+      </div>
+      <div style="background:var(--white);border-radius:8px;padding:20px 16px;text-align:center">
+        <div style="font-size:24px;margin-bottom:8px">❄️</div>
+        <div style="font-size:13px;font-weight:700;margin-bottom:4px">クール便でお届け</div>
+        <div style="font-size:11px;color:var(--text-light)">品質を保ったまま</div>
+      </div>
     </div>
   </div>
 </div>
@@ -326,5 +392,12 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.5);padding:64px 48px 40px}
     </div>
   </div>
 </footer>
+<script>
+document.querySelectorAll('.accordion-header').forEach(function(h){
+  h.addEventListener('click',function(){
+    this.closest('.accordion-item').classList.toggle('open');
+  });
+});
+</script>
 </body>
 </html>
