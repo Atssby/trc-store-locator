@@ -57,6 +57,8 @@ nav a:hover,nav a.active{color:var(--red)}
 .badge-kaldi{background:#EFEBE9;color:#4E342E}
 .badge-gaishoku{background:var(--red-tint);color:var(--red)}
 .badge-coop{background:#E0F5F5;color:#00838F}
+.badge-beisia{background:#E8F5E9;color:#1B5E20}
+.badge-ryubo{background:#FFF8E1;color:#E65100}
 .store-address{color:var(--text-light);display:flex;align-items:flex-start;gap:4px}
 .store-address svg{flex-shrink:0;margin-top:2px;color:var(--text-light)}
 .map-container{border-radius:6px;overflow:hidden;border:1px solid var(--border);position:relative;background:var(--cream)}
@@ -159,7 +161,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.5);padding:40px 48px 28px}
 
 <script>
 let allStores = [];
-const badgeClass = {"ライフ":"badge-life","紀ノ国屋":"badge-kino","沖縄ファミリーマート":"badge-famima","ファミリーマート":"badge-famima","東急ストア":"badge-tokyu","イオン九州":"badge-aeon","KALDI":"badge-kaldi","外食":"badge-gaishoku","コープさっぽろ":"badge-coop"};
+const badgeClass = {"ライフ":"badge-life","紀ノ国屋":"badge-kino","沖縄ファミリーマート":"badge-famima","ファミリーマート":"badge-famima","東急ストア":"badge-tokyu","イオン九州":"badge-aeon","KALDI":"badge-kaldi","外食":"badge-gaishoku","コープさっぽろ":"badge-coop","ベイシア":"badge-beisia","リウボウストア":"badge-ryubo"};
 
 fetch("stores.json")
   .then(r => r.json())
@@ -232,7 +234,7 @@ function render(){
   container.innerHTML = '';
   document.getElementById('storeList').scrollTop = 0;
 
-  const chainOrder = ['ライフ','紀ノ国屋','東急ストア','イオン九州','KALDI','コープさっぽろ','外食','ファミリーマート','沖縄ファミリーマート'];
+  const chainOrder = ['ライフ','紀ノ国屋','東急ストア','イオン九州','KALDI','コープさっぽろ','ベイシア','リウボウストア','外食','ファミリーマート','沖縄ファミリーマート'];
   chainOrder.forEach(ch=>{
     if(!groups[ch]) return;
     const stores = groups[ch];
@@ -304,6 +306,8 @@ const markerColors = {
   'イオン九州': '#0D47A1',
   'KALDI': '#4E342E',
   'コープさっぽろ': '#00838F',
+  'ベイシア': '#1B5E20',
+  'リウボウストア': '#E65100',
   '外食': '#C62828'
 };
 
