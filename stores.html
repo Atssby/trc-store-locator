@@ -362,6 +362,7 @@ function addMarkersFromStores(storeList) {
         );
         infoWindow.open(map, mk);
         highlightCard(store.no);
+        updateGoogleMapLink(store);
       });
     })(s, marker);
     markers[s.no] = marker;
@@ -381,14 +382,16 @@ function panToStore(s) {
       </div>`);
     infoWindow.open(map, marker);
   }
-  // 「Google Mapで見る」ボタンのリンクを更新
+  updateGoogleMapLink(s);
+}
+
+function updateGoogleMapLink(s) {
   const link = document.getElementById('googleMapLink');
-  if (link) {
-    const q = encodeURIComponent(s.name + ' ' + (s.address || ''));
-    link.href = 'https://maps.google.com/?q=' + q;
-    link.style.opacity = '1';
-    link.style.pointerEvents = 'auto';
-  }
+  if (!link) return;
+  const q = encodeURIComponent(s.name + ' ' + (s.address || ''));
+  link.href = 'https://maps.google.com/?q=' + q;
+  link.style.opacity = '1';
+  link.style.pointerEvents = 'auto';
 }
 
 function highlightCard(storeNo) {
